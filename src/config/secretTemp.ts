@@ -53,7 +53,7 @@ export const MYSQL_CONFIG = {
         : '********************',
     volume:
       PROJECT_ENV === PROJECT_ENV_ENUM.development
-        ? '/Users/huangshuisheng/Desktop/docker/mysql'
+        ? 'D:\\docker\\mysql'
         : '********************',
   },
   database:
@@ -79,7 +79,7 @@ export const REDIS_CONFIG = {
     port: { 6379: 6379 },
     volume:
       PROJECT_ENV === PROJECT_ENV_ENUM.development
-        ? '/Users/huangshuisheng/Desktop/docker/redis'
+        ? 'D:\\docker\\redis'
         : '*************',
   },
   database: 0,
@@ -110,13 +110,13 @@ export const SRS_CONFIG = {
     },
     volume:
       PROJECT_ENV === PROJECT_ENV_ENUM.development
-        ? '/Users/huangshuisheng/Desktop/docker/srs'
+        ? 'D:\\docker\\srs'
         : '*************',
   },
   // CANDIDATE填你的本机ip地址
   CANDIDATE:
     PROJECT_ENV === PROJECT_ENV_ENUM.development
-      ? `$(ifconfig en0 inet | grep 'inet ' | awk '{print $2}')` // WARN mac可以这样获取本机ip，但是win不行，自己找本地ip
+      ? `172.31.240.1` // WARN mac可以这样获取本机ip，但是win不行，自己找本地ip
       : '*************',
 }; // SRS配置
 

@@ -30,13 +30,13 @@ async function addLive({
 }) {
   async function main({ remoteFlv }: { remoteFlv: string }) {
     try {
-      const getOldProcess = `ps aux | grep ffmpeg | grep -v grep | grep '${remoteFlv}' | awk '{print $2}'`;
-      const res = execSync(getOldProcess);
-      const oldProcess = res.toString().trim();
-      if (oldProcess) {
-        const killOldFFmpeg = `kill -9 ${oldProcess}`;
-        execSync(killOldFFmpeg);
-      }
+      // const getOldProcess = `ps aux | grep ffmpeg | grep -v grep | grep '${remoteFlv}' | awk '{print $2}'`;
+      // const res = execSync(getOldProcess);
+      // const oldProcess = res.toString().trim();
+      // if (oldProcess) {
+      //   const killOldFFmpeg = `kill -9 ${oldProcess}`;
+      //   execSync(killOldFFmpeg);
+      // }
     } catch (error) {
       console.log(error);
     }
@@ -105,14 +105,17 @@ export const initFFmpeg = async (init = true) => {
   }
   try {
     try {
-      // const fullCMD = `kill -9 $(ps aux | grep ffmpeg | grep -v grep | awk '{print $2}')`;
-      const getOldProcess = `ps aux | grep ffmpeg | grep -v grep | awk '{print $2}'`;
-      const res = execSync(getOldProcess);
-      const oldProcess = res.toString().trim();
-      if (oldProcess) {
-        const killOldFFmpeg = `kill -9 $(${getOldProcess})`;
-        execSync(killOldFFmpeg);
-      }
+      // // const fullCMD = `kill -9 $(ps aux | grep ffmpeg | grep -v grep | awk '{print $2}')`;
+      // // const getOldProcess = `ps aux | grep ffmpeg | grep -v grep | awk '{print $2}'`;
+      // // const getOldProcess = 'cmd /c "for /F "tokens=2" %a in (`tasklist ^| findstr "ffmpeg"`) do @echo %a"';
+      // const getOldProcess = `for /F "tokens=2" %a in ('tasklist ^| findstr "ffmpeg"') do @echo %a`;
+      // const res = execSync(getOldProcess);
+      // const oldProcess = res.toString().trim();
+      // if (oldProcess) {
+      //   // const killOldFFmpeg = `kill -9 $(${getOldProcess})`;
+      //   const killOldFFmpeg = `taskkill /PID ${getOldProcess} /F`;
+      //   execSync(killOldFFmpeg);
+      // }
     } catch (error) {
       console.log(error);
     }
